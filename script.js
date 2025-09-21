@@ -12,87 +12,112 @@ class MediaController {
         this.setupSimpleDropdown();
         this.disableZoomOnFixedImages();
         this.setupMediaLibrary();
+        this.setupResultsGalleries();
     }
 
     // Initialize fixed media library with descriptions
     initializeFixedMedia() {
         return {
-            "Methodology Diagrams": [
+            "Panorama Generation": [
                 {
-                    title: "Data Processing Pipeline",
+                    title: "Prompt1",
                     description: "A comprehensive data preprocessing pipeline showing raw data input, cleaning steps, feature extraction, normalization, and final processed output",
                     type: "image",
-                    mediaUrl: "https://via.placeholder.com/1024x1024/f8f9fa/6c757d?text=Data+Processing+Pipeline",
-                    dimensions: "1024x1024"
+                    mediaUrl: "./figures/panoramas/coral_reef.png",
+                    dimensions: "512x4608"
                 },
                 {
-                    title: "Machine Learning Workflow", 
-                    description: "A complete machine learning workflow diagram showing data collection, preprocessing, model training, validation, testing, and deployment phases",
+                    title: "Prompt2",
+                    description: "A panoramic image of a bustling cityscape at night, showcasing vibrant lights and dynamic architecture",
                     type: "image",
-                    mediaUrl: "https://via.placeholder.com/1920x1080/f8f9fa/6c757d?text=ML+Workflow",
-                    dimensions: "1920x1080"
+                    mediaUrl: "./figures/panoramas/dolomiteslava.png",
+                    dimensions: "512x4608"
                 },
                 {
-                    title: "Neural Network Architecture",
-                    description: "A detailed neural network architecture diagram showing input layer, multiple hidden layers, activation functions, and output layer",
-                    type: "image", 
-                    mediaUrl: "https://via.placeholder.com/512x4512/f8f9fa/6c757d?text=Neural+Network+Architecture",
-                    dimensions: "512x4512"
-                }
-            ],
-            "Results Visualizations": [
-                {
-                    title: "Performance Comparison Chart",
-                    description: "A professional bar chart comparing accuracy, precision, and recall metrics across different machine learning models",
+                    title: "Prompt3",
+                    description: "A panoramic view of a serene mountain range during sunrise, highlighting the natural beauty and tranquility of the scene",
                     type: "image",
-                    mediaUrl: "https://via.placeholder.com/1024x1024/f8f9fa/6c757d?text=Performance+Comparison",
-                    dimensions: "1024x1024"
+                    mediaUrl: "./figures/panoramas/fogforest.png",
+                    dimensions: "512x4608"
                 },
                 {
-                    title: "Confusion Matrix Heatmap",
-                    description: "A detailed confusion matrix heatmap with color coding and numerical values for multi-class prediction results",
+                    title: "Prompt4",
+                    description: "A panoramic image capturing the vibrant colors and intricate details of a coral reef ecosystem",
                     type: "image",
-                    mediaUrl: "https://via.placeholder.com/800x600/f8f9fa/6c757d?text=Confusion+Matrix",
-                    dimensions: "800x600"
+                    mediaUrl: "./figures/panoramas/grassland.png",
+                    dimensions: "512x4608"
                 },
                 {
-                    title: "Training Progress Curves",
-                    description: "Multiple line graphs showing training and validation loss, accuracy curves over epochs",
+                    title: "Prompt5",
+                    description: "A panoramic view of a dense forest shrouded in mist, creating a mysterious and enchanting atmosphere",
                     type: "image",
-                    mediaUrl: "https://via.placeholder.com/1920x1080/f8f9fa/6c757d?text=Training+Curves",
-                    dimensions: "1920x1080"
-                }
-            ],
-            "System Architecture": [
-                {
-                    title: "Distributed System Design",
-                    description: "A technical architecture diagram showing microservices, databases, load balancers, and communication protocols",
-                    type: "image",
-                    mediaUrl: "https://via.placeholder.com/1920x1080/f8f9fa/6c757d?text=Distributed+System",
-                    dimensions: "1920x1080"
+                    mediaUrl: "./figures/panoramas/lakelights.png",
+                    dimensions: "512x4608"
                 },
                 {
-                    title: "Data Flow Architecture", 
-                    description: "A comprehensive data flow diagram showing data sources, processing components, and storage systems",
+                    title: "Prompt6",
+                    description: "A panoramic image of a picturesque lakeside scene with mountains in the background, reflecting the natural beauty of the area",
                     type: "image",
-                    mediaUrl: "https://via.placeholder.com/1024x1024/f8f9fa/6c757d?text=Data+Flow+Architecture",
-                    dimensions: "1024x1024"
+                    mediaUrl: "./figures/panoramas/lalaland.png",
+                    dimensions: "512x4608"
+                },
+                {
+                    title: "Prompt7",
+                    description: "A panoramic view of a vibrant city skyline during sunset, showcasing the dynamic architecture and lively atmosphere",
+                    type: "image",
+                    mediaUrl: "./figures/panoramas/last_supper.png",
+                    dimensions: "512x4608"
+                },
+                {
+                    title: "Prompt8",
+                    description: "A panoramic image capturing the serene beauty of a beach at sunrise, with soft lighting and gentle waves",
+                    type: "image",
+                    mediaUrl: "./figures/panoramas/mountainriver.png",
+                    dimensions: "512x4608"
+                },
+                {
+                    title: "Prompt9",
+                    description: "A panoramic view of a historic European city with iconic architecture and vibrant street life",
+                    type: "image",
+                    mediaUrl: "./figures/panoramas/mountaintwilight.png",
+                    dimensions: "512x4608"
+                },
+                {
+                    title: "Prompt10",
+                    description: "A panoramic image of a tranquil lakeside scene surrounded by lush greenery and mountains, reflecting the natural beauty of the area",
+                    type: "image",
+                    mediaUrl: "./figures/panoramas/nature.png",
+                    dimensions: "512x4608"
+                },
+                {
+                    title: "Prompt11",
+                    description: "A panoramic view of a vibrant cityscape at night, showcasing the dynamic architecture and lively atmosphere",
+                    type: "image",
+                    mediaUrl: "./figures/panoramas/silhouttestars.png",
+                    dimensions: "512x4608"
+                },
+                {
+                    title: "Prompt12",
+                    description: "A panoramic image capturing the serene beauty of a beach at sunset, with warm lighting and gentle waves",
+                    type: "image",
+                    mediaUrl: "./figures/panoramas/skiers.png",
+                    dimensions: "512x4608"
                 }
             ],
             "Video Demonstrations": [
                 {
-                    title: "Algorithm Execution Demo",
+                    title: "Prompt1",
                     description: "A real-time demonstration of algorithm execution showing input processing and results",
                     type: "video",
-                    mediaUrl: "https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4",
-                    dimensions: "1920x1080"
+                    mediaUrl: "./videos/panda.mp4",
+                    dimensions: "720x480"
                 },
                 {
-                    title: "System Interface Demo",
+                    title: "Prompt2",
                     description: "A user interface demonstration showing system interactions and real-time responses",
                     type: "video", 
-                    mediaUrl: "https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_2mb.mp4",
-                    dimensions: "1920x1080"
+                    mediaUrl: "./videos/baking-cake.mp4",
+                    dimensions: "720x480"
                 }
             ]
         };
@@ -147,13 +172,7 @@ class MediaController {
         
         const mediaPlaceholder = document.createElement('div');
         mediaPlaceholder.className = 'simple-placeholder';
-        mediaPlaceholder.innerHTML = `
-            <div class="placeholder-content">
-                <div class="placeholder-icon">🎨</div>
-                <h4>Select Media to Display</h4>
-                <p>Choose any item from the dropdown above to view the research visualization</p>
-            </div>
-        `;
+        mediaPlaceholder.innerHTML = ``;
         
         mediaDisplay.appendChild(mediaPlaceholder);
         
@@ -238,16 +257,9 @@ class MediaController {
         const actions = document.createElement('div');
         actions.className = 'simple-actions';
         
-        const addToPageBtn = this.createButton('📄 Add to Research Page', 'Add this media to the research page');
         const viewFullBtn = this.createButton('🔍 View Fullscreen', 'View in fullscreen');
         
-        actions.appendChild(addToPageBtn);
         actions.appendChild(viewFullBtn);
-        
-        // Add event listeners
-        addToPageBtn.addEventListener('click', () => {
-            this.addMediaToResearchPage(figure.cloneNode(true), mediaData);
-        });
         
         viewFullBtn.addEventListener('click', () => {
             if (mediaData.type === 'video') {
@@ -305,13 +317,7 @@ class MediaController {
         
         const placeholder = document.createElement('div');
         placeholder.className = 'simple-placeholder';
-        placeholder.innerHTML = `
-            <div class="placeholder-content">
-                <div class="placeholder-icon">🎨</div>
-                <h4>Select Media to Display</h4>
-                <p>Choose any item from the dropdown above to view the research visualization</p>
-            </div>
-        `;
+        placeholder.innerHTML = ``;
         
         mediaDisplay.appendChild(placeholder);
     }
@@ -626,21 +632,16 @@ class MediaController {
         const downloadBtn = this.createButton('💾 Download', 'Download generated media');
         const editBtn = this.createButton('✏️ Edit Prompt', 'Edit this prompt');
         const regenerateBtn = this.createButton('🔄 Regenerate', 'Generate again');
-        const addToPageBtn = this.createButton('📄 Add to Page', 'Add to research page');
         
         actions.appendChild(downloadBtn);
         actions.appendChild(editBtn);
         actions.appendChild(regenerateBtn);
-        actions.appendChild(addToPageBtn);
         
         // Add event listeners
         regenerateBtn.addEventListener('click', () => {
             this.generateFromDropdownSelection(promptData, mediaDisplay);
         });
-        
-        addToPageBtn.addEventListener('click', () => {
-            this.addGeneratedMediaToPage(figure.cloneNode(true), promptData);
-        });
+    
         
         editBtn.addEventListener('click', () => {
             this.openPromptEditorForDropdown(promptData, mediaDisplay);
@@ -1569,5 +1570,173 @@ window.mediaUtils = {
         // Clean up event listeners
         const mediaContainer = document.getElementById('modalMediaContainer');
         mediaContainer.innerHTML = '';
+    },
+
+    // Replace your existing setupResultsGalleries method with this:
+    setupResultsGalleries() {
+        this.setupPanoramaGallery();
+        this.setupVideoGallery();
+    },
+
+    // Replace your existing setupPanoramaGallery method with this:
+    setupPanoramaGallery() {
+        const panoramaFiles = [
+            'figures/panoramas/coral_reef.png',
+            'figures/panoramas/dolomiteslava.png',
+            'figures/panoramas/fogforest.png',
+            'figures/panoramas/grassland.png',
+            'figures/panoramas/lakelights.png',
+            'figures/panoramas/lalland.png',
+            'figures/panoramas/last_supper.png',
+            'figures/panoramas/mountainriver.png',
+            'figures/panoramas/mountaintwilight.png',
+            'figures/panoramas/nature.png',
+            'figures/panoramas/silhoutte_stars.png',
+            'figures/panoramas/skiers.png'
+        ];
+
+        this.loadGallery('panoramaGallery', panoramaFiles, 'image', {
+            prevBtn: 'prevPanorama',
+            nextBtn: 'nextPanorama',
+            counter: 'panoramaCounter'
+        });
+    },
+
+    // Replace your existing setupVideoGallery method with this:
+    setupVideoGallery() {
+        const videoFiles = [
+            'videos/baking-cake.mp4',
+            'videos/panda.mp4'
+        ];
+
+        this.loadGallery('videoGallery', videoFiles, 'video', {
+            prevBtn: 'prevVideo',
+            nextBtn: 'nextVideo',
+            counter: 'videoCounter'
+        });
+    },
+
+    // Replace your existing loadGallery method with this:
+    loadGallery(galleryId, files, type, controls) {
+        const gallery = document.getElementById(galleryId);
+        if (!gallery) return;
+
+        const gridContainer = gallery.querySelector('.gallery-grid');
+        const prevBtn = document.getElementById(controls.prevBtn);
+        const nextBtn = document.getElementById(controls.nextBtn);
+        const counter = document.getElementById(controls.counter);
+
+        let currentIndex = 0;
+        const totalItems = files.length;
+
+        gridContainer.innerHTML = '';
+
+        const updateCounter = () => {
+            if (counter) {
+                counter.textContent = `${currentIndex + 1} / ${totalItems}`;
+            }
+        };
+
+        const updateButtons = () => {
+            if (prevBtn) prevBtn.disabled = currentIndex === 0;
+            if (nextBtn) nextBtn.disabled = currentIndex === totalItems - 1;
+        };
+
+        const displayItem = (index) => {
+            if (index < 0 || index >= totalItems) return;
+
+            gridContainer.innerHTML = '';
+            const file = files[index];
+
+            if (type === 'image') {
+                const img = document.createElement('img');
+                img.src = file;
+                img.alt = `Panorama ${index + 1}`;
+                img.className = 'gallery-item';
+                img.addEventListener('click', () => {
+                    this.openMediaViewer('image', file, `Panorama ${index + 1}`,
+                        `High-resolution panoramic image showcasing our generation capabilities.`);
+                });
+
+                img.addEventListener('error', () => {
+                    img.src = `https://via.placeholder.com/1920x600/4299e1/ffffff?text=Panorama+${index + 1}+%28Demo%29`;
+                });
+
+                gridContainer.appendChild(img);
+            } else if (type === 'video') {
+                const video = document.createElement('video');
+                video.src = file;
+                video.className = 'gallery-item demo-video';
+                video.preload = 'metadata';
+                video.muted = true;
+                video.loop = true;
+
+                video.addEventListener('click', () => {
+                    this.openMediaViewer('video', file, `Long Video ${index + 1}`,
+                        `Extended video generation demonstrating temporal consistency and narrative coherence.`);
+                });
+
+                video.addEventListener('error', () => {
+                    const placeholder = document.createElement('div');
+                    placeholder.className = 'video-placeholder gallery-item';
+                    placeholder.style.background = '#4299e1';
+                    placeholder.style.color = 'white';
+                    placeholder.style.display = 'flex';
+                    placeholder.style.alignItems = 'center';
+                    placeholder.style.justifyContent = 'center';
+                    placeholder.style.fontSize = '1.2rem';
+                    placeholder.style.fontWeight = 'bold';
+                    placeholder.textContent = `Long Video ${index + 1} (Demo)`;
+                    placeholder.addEventListener('click', () => {
+                        this.openMediaViewer('video', 'https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4',
+                            `Long Video ${index + 1}`,
+                            `Extended video generation demonstrating temporal consistency and narrative coherence.`);
+                    });
+                    gridContainer.appendChild(placeholder);
+                });
+
+                gridContainer.appendChild(video);
+            }
+
+            currentIndex = index;
+            updateCounter();
+            updateButtons();
+        };
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    displayItem(currentIndex - 1);
+                }
+            });
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                if (currentIndex < totalItems - 1) {
+                    displayItem(currentIndex + 1);
+                }
+            });
+        }
+
+        document.addEventListener('keydown', (e) => {
+            const activeGallery = gallery.querySelector('.gallery-grid:hover') !== null;
+            if (!activeGallery) return;
+
+            if (e.key === 'ArrowLeft' && currentIndex > 0) {
+                displayItem(currentIndex - 1);
+                e.preventDefault();
+            } else if (e.key === 'ArrowRight' && currentIndex < totalItems - 1) {
+                displayItem(currentIndex + 1);
+                e.preventDefault();
+            }
+        });
+
+        if (totalItems > 0) {
+            displayItem(0);
+        } else {
+            gridContainer.innerHTML = '<div class="gallery-placeholder"><p>No media files found</p></div>';
+            if (counter) counter.textContent = '0 / 0';
+        }
     }
 };

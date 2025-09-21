@@ -12,7 +12,7 @@
     <main class="container">
         <!-- Header Section -->
         <header class="paper-header">
-            <h1 class="paper-title">Compositional Diffusion with Guided search for Long-Horizon Goal-Directed Planning</h1>
+            <h1 class="paper-title">Compositional Diffusion with Guided search for Long-Horizon Planning</h1>
             <div class="author-info">
                 <!-- <p class="authors">
                     <span class="author">Your Name<sup>1</sup></span>,
@@ -28,12 +28,19 @@
             </div>
         </header>
 
+        <!-- Teaser Figure -->
+        <section class="content-section">
+            <figure class="media-figure">
+                <img src="./figures/teaser.png" alt="Teaser Figure" class="teaser-image">
+            </figure>
+        </section>
+
         <!-- Abstract Section -->
         <section class="abstract">
             <h2>Abstract</h2>
             <p>
                 Solving long-horizon goal-directed planning problems requires reasoning about both global structure 
-                (\emph{what}) and local feasibility (\emph{how}). This challenge is amplified when only short-horizon 
+                <i>(what)</i> and local feasibility <i>(how)</i>. This challenge is amplified when only short-horizon 
                 data is available, yet arises broadly across domains—including panoramic image synthesis, long-video 
                 generation, and multi-stage robot manipulation. A natural solution is to compose local plans into a 
                 coherent global plan, but traditional methods either rely on symbolic/geometric specifications or fail 
@@ -43,21 +50,9 @@
                 infeasible paths, and harmonizes local segments, producing globally coherent and feasible solutions 
                 without explicit symbolic models. CDGS matches oracle performance on seven robot manipulation tasks 
                 and outperforms baselines lacking compositionality or trained only on long-horizon data. We further 
-                show that CDGS’s effective local-to-global message passing enables coherent generation of text-guided 
+                show that CDGS's effective local-to-global message passing enables coherent generation of text-guided 
                 panoramic images and long videos. 
             </p>
-        </section>
-
-        <!-- Teaser Figure -->
-        <section class="content-section">
-            <h2>Teaser</h2>
-            <figure class="media-figure">
-                <img src="https://via.placeholder.com/800x400/f8f9fa/6c757d?text=Teaser+Figure" alt="Teaser Figure" class="teaser-image">
-                <figcaption>
-                    <strong>Figure 1:</strong> Overview of our approach showing the key contribution and main results. 
-                    This teaser demonstrates the effectiveness of our method compared to existing approaches.
-                </figcaption>
-            </figure>
         </section>
 
         <!-- Method Figure -->
@@ -69,11 +64,7 @@
             </p>
             
             <figure class="media-figure">
-                <img src="https://via.placeholder.com/512x4512/f8f9fa/6c757d?text=Method+Diagram+512x4512" alt="Method Overview" class="large-image">
-                <figcaption>
-                    <strong>Figure 2:</strong> Detailed methodology diagram showing our complete pipeline. This image (512x4512) 
-                    demonstrates the step-by-step process of our approach.
-                </figcaption>
+                <img src="./figures/method.png" alt="Method Overview" class="large-image">
             </figure>
         </section>
 
@@ -81,170 +72,87 @@
         <section class="content-section">
             <h2>Results</h2>
             <p>
-                We evaluate our approach on several benchmark datasets and compare against state-of-the-art methods. 
-                The quantitative results are shown below.
+                We evaluate our approach across three key domains that demonstrate the versatility and effectiveness of our method. 
+                Each evaluation category showcases different aspects of our algorithm's capabilities.
             </p>
 
-            <!-- Results Visualization -->
-            <figure class="media-figure">
-                <img src="https://via.placeholder.com/512x4512/f8f9fa/6c757d?text=Results+Visualization+512x4512" alt="Results Comparison" class="large-image">
-                <figcaption>
-                    <strong>Figure 3:</strong> Detailed performance comparison across different metrics. This high-resolution 
-                    image shows comprehensive results with interactive viewing capabilities.
-                </figcaption>
-            </figure>
-
-            <!-- Video Demonstration -->
-            <figure class="media-figure">
-                <video class="demo-video" preload="metadata">
-                    <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <figcaption>
-                    <strong>Video 1:</strong> Real-time demonstration of our method processing sample data. 
-                    The video shows the step-by-step execution and final results. Use the custom controls below for enhanced playback.
-                </figcaption>
-            </figure>
-        </section>
-
-        <!-- Interactive Media Library Section -->
-        <section class="content-section media-library-section">
-            <h2>📋 Research Media Library</h2>
-            <p>
-                Browse our curated collection of research visualizations. Click on any thumbnail to view the full image or video with scroll-enabled magnification.
-            </p>
-            
-            <!-- Media Library Grid -->
-            <div class="media-library-grid" id="mediaLibraryGrid">
-                <!-- Images Section -->
-                <div class="library-category">
-                    <h3>🖼️ Research Images</h3>
-                    <div class="media-thumbnails">
-                        <div class="media-thumbnail" data-type="image" data-src="https://via.placeholder.com/1920x1080/4299e1/ffffff?text=Data+Visualization+Chart" data-title="Data Visualization Chart" data-description="Comprehensive data visualization showing research results with multiple metrics and comparisons">
-                            <img src="https://via.placeholder.com/300x200/4299e1/ffffff?text=Data+Chart" alt="Data Visualization">
-                            <div class="thumbnail-overlay">
-                                <span class="thumbnail-title">Data Visualization</span>
-                                <span class="thumbnail-type">IMAGE</span>
-                            </div>
-                        </div>
-                        
-                        <div class="media-thumbnail" data-type="image" data-src="https://via.placeholder.com/1024x1024/22c55e/ffffff?text=Network+Architecture" data-title="Network Architecture Diagram" data-description="Detailed neural network architecture showing layers, connections, and data flow through the system">
-                            <img src="https://via.placeholder.com/300x200/22c55e/ffffff?text=Network" alt="Network Architecture">
-                            <div class="thumbnail-overlay">
-                                <span class="thumbnail-title">Network Architecture</span>
-                                <span class="thumbnail-type">IMAGE</span>
-                            </div>
-                        </div>
-                        
-                        <div class="media-thumbnail" data-type="image" data-src="https://via.placeholder.com/1600x900/ef4444/ffffff?text=Algorithm+Flowchart" data-title="Algorithm Flowchart" data-description="Step-by-step algorithm flowchart illustrating the complete process from input to output">
-                            <img src="https://via.placeholder.com/300x200/ef4444/ffffff?text=Algorithm" alt="Algorithm Flowchart">
-                            <div class="thumbnail-overlay">
-                                <span class="thumbnail-title">Algorithm Flowchart</span>
-                                <span class="thumbnail-type">IMAGE</span>
-                            </div>
-                        </div>
-                        
-                        <div class="media-thumbnail" data-type="image" data-src="https://via.placeholder.com/2048x1536/8b5cf6/ffffff?text=Performance+Metrics" data-title="Performance Metrics" data-description="Detailed performance comparison charts showing accuracy, speed, and efficiency metrics across different approaches">
-                            <img src="https://via.placeholder.com/300x200/8b5cf6/ffffff?text=Metrics" alt="Performance Metrics">
-                            <div class="thumbnail-overlay">
-                                <span class="thumbnail-title">Performance Metrics</span>
-                                <span class="thumbnail-type">IMAGE</span>
-                            </div>
-                        </div>
-                        
-                        <div class="media-thumbnail" data-type="image" data-src="https://via.placeholder.com/512x4096/f59e0b/ffffff?text=Method+Pipeline" data-title="Method Pipeline" data-description="Comprehensive method pipeline showing all stages from data preprocessing to final results">
-                            <img src="https://via.placeholder.com/300x200/f59e0b/ffffff?text=Pipeline" alt="Method Pipeline">
-                            <div class="thumbnail-overlay">
-                                <span class="thumbnail-title">Method Pipeline</span>
-                                <span class="thumbnail-type">LARGE IMAGE</span>
-                            </div>
-                        </div>
-                        
-                        <div class="media-thumbnail" data-type="image" data-src="https://via.placeholder.com/1200x800/06b6d4/ffffff?text=System+Overview" data-title="System Overview" data-description="High-level system overview diagram showing components, interactions, and data flow">
-                            <img src="https://via.placeholder.com/300x200/06b6d4/ffffff?text=System" alt="System Overview">
-                            <div class="thumbnail-overlay">
-                                <span class="thumbnail-title">System Overview</span>
-                                <span class="thumbnail-type">IMAGE</span>
-                            </div>
-                        </div>
-                    </div>
+            <!-- Evaluation Overview -->
+            <div class="evaluation-overview">
+                <div class="eval-category">
+                    <h3>🤖 Long Horizon Manipulation Tasks</h3>
+                    <p>Complex robotic manipulation sequences requiring long-horizon planning and reasoning about inter-step dependencies.</p>
                 </div>
+                <div class="eval-category">
+                    <h3>🌄 Panoramic Image Generation</h3>
+                    <p>High-resolution panoramic image synthesis (512 x 4608) with seamless stitching and detail preservation.</p>
+                </div>
+                <div class="eval-category">
+                    <h3>🎬 Long Video Generation</h3>
+                    <p>Extended video sequence generation upto 350 frames while maintaining temporal and subject consistencies.</p>
+                </div>
+            </div>
+
+            <!-- 1. Long Horizon Manipulation Tasks -->
+            <div class="results-category">
+                <h3>1. Long Horizon Manipulation Tasks</h3>
+                <!-- <p>
+                    Our method demonstrates superior performance in complex manipulation tasks that require extended 
+                    planning horizons and precise execution. We present two representative examples showcasing 
+                    different aspects of manipulation capabilities.
+                </p> -->
                 
-                <!-- Videos Section -->
-                <div class="library-category">
-                    <h3>🎥 Research Videos</h3>
-                    <div class="media-thumbnails">
-                        <div class="media-thumbnail" data-type="video" data-src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4" data-title="Algorithm Demo" data-description="Real-time demonstration of the algorithm processing sample data and producing results">
-                            <img src="https://via.placeholder.com/300x200/dc2626/ffffff?text=▶+Demo" alt="Algorithm Demo">
-                            <div class="thumbnail-overlay">
-                                <span class="thumbnail-title">Algorithm Demo</span>
-                                <span class="thumbnail-type">VIDEO</span>
-                            </div>
-                            <div class="play-button">▶</div>
-                        </div>
-                        
-                        <div class="media-thumbnail" data-type="video" data-src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_2mb.mp4" data-title="System Interface" data-description="User interface walkthrough showing system features and interaction capabilities">
-                            <img src="https://via.placeholder.com/300x200/059669/ffffff?text=▶+Interface" alt="System Interface">
-                            <div class="thumbnail-overlay">
-                                <span class="thumbnail-title">System Interface</span>
-                                <span class="thumbnail-type">VIDEO</span>
-                            </div>
-                            <div class="play-button">▶</div>
-                        </div>
-                        
-                        <div class="media-thumbnail" data-type="video" data-src="https://sample-videos.com/zip/10/mp4/SampleVideo_640x360_1mb.mp4" data-title="Results Analysis" data-description="Detailed analysis of experimental results with visual explanations and comparisons">
-                            <img src="https://via.placeholder.com/300x200/7c3aed/ffffff?text=▶+Analysis" alt="Results Analysis">
-                            <div class="thumbnail-overlay">
-                                <span class="thumbnail-title">Results Analysis</span>
-                                <span class="thumbnail-type">VIDEO</span>
-                            </div>
-                            <div class="play-button">▶</div>
-                        </div>
-                        
-                        <div class="media-thumbnail" data-type="video" data-src="https://sample-videos.com/zip/10/mp4/SampleVideo_1920x1080_1mb.mp4" data-title="Live Experiment" data-description="Live experimental demonstration showing the method in action with real-world data">
-                            <img src="https://via.placeholder.com/300x200/ea580c/ffffff?text=▶+Experiment" alt="Live Experiment">
-                            <div class="thumbnail-overlay">
-                                <span class="thumbnail-title">Live Experiment</span>
-                                <span class="thumbnail-type">VIDEO</span>
-                            </div>
-                            <div class="play-button">▶</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Media Viewer Modal -->
-            <div class="media-viewer-modal" id="mediaViewerModal" style="display: none;">
-                <div class="modal-backdrop"></div>
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h3 class="modal-title"></h3>
-                        <button class="modal-close" id="modalClose">✕</button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="media-container" id="modalMediaContainer"></div>
-                        <div class="media-description" id="modalDescription"></div>
-                        <div class="media-controls" id="modalControls"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
+                <div class="manipulation-videos">
+                    <div class="video-pair">
+                        <figure class="media-figure manipulation-demo">
+                            <video class="demo-video" preload="metadata">
+                                <source src="videos/rearrangement_memory.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <!-- <figcaption>
+                                <strong>Video 1:</strong> Multi-step object assembly task demonstrating long-horizon planning 
+                                with precise manipulation and error recovery capabilities.
+                            </figcaption> -->
+                        </figure>
 
-        <!-- Discussion Section -->
-        <section class="content-section">
-            <h2>Discussion</h2>
-            <p>
-                The experimental results demonstrate the effectiveness of our proposed approach. The significant 
-                improvements in [specific metrics] can be attributed to [explanation of why method works].
-            </p>
-            <p>
-                While our method shows promising results, there are some limitations to consider:
-            </p>
-            <ul>
-                <li>Computational complexity for very large datasets</li>
-                <li>Sensitivity to certain parameter settings</li>
-                <li>Limited evaluation on domain-specific tasks</li>
-            </ul>
+                        <figure class="media-figure manipulation-demo">
+                            <video class="demo-video" preload="metadata">
+                                <source src="videos/rearrangement_push.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <!-- <figcaption>
+                                <strong>Video 2:</strong> Complex kitchen task involving multiple tools and sequential operations 
+                                showcasing adaptive behavior and robust execution.
+                            </figcaption> -->
+                        </figure>
+                    </div>
+                </div>
+
+                <!-- <div class="performance-metrics">
+                    <div class="metric-item">
+                        <span class="metric-value">94.2%</span>
+                        <span class="metric-label">Success Rate</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-value">3.7x</span>
+                        <span class="metric-label">Speed Improvement</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-value">15.8s</span>
+                        <span class="metric-label">Avg. Planning Time</span>
+                    </div>
+                </div> -->
+            </div>
+
+            <!-- 2. Panoramic Image Generation -->
+            <div class="results-category">
+                <h3>2. Panoramic Image and Long Video Generation</h3>
+                <!-- <p>
+                    Our approach excels at generating high-quality panoramic images with seamless stitching and 
+                    exceptional detail preservation. The gallery below showcases diverse panoramic generations 
+                    across different environments and conditions. Our method generates temporally consistent long-form videos while maintaining narrative coherence 
+                    and visual quality. The collection below demonstrates various scenarios and content types.
+                </p> -->
+            </div>
         </section>
 
         <!-- Footer -->
