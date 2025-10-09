@@ -15,108 +15,135 @@ class MediaController {
         this.setupResultsGalleries();
     }
 
+    // "A beautiful landscape with mountains and a river"
+    // "A photo of the dolomites with red lava flowing through the valley"
+    // "A photo of a city skyline at night"
+    // "A photo of lush forest with a babbling brook"
+    // "A photo of a forest with a misty fog"
+    // "A photo of mountain range at twilight"
+    // "Cartoon panorama of spring summer beautiful nature"
+    // "A photo of a snowy mountain peak with skiers"
+    // "Natural landscape in anime style illustration"
+    // "An illustration of a beach in La La Land style"
+    // "Skyline of a futuristic city with flying cars"
+    // "A photo of a rock concert"
+    // "Silhouette wallpaper of a dreamy scene with shooting stars"
+    // "A beach with palm trees"
+    // "A photo of a grassland with animals"
+    // "A cinematic view of a castle in the sunset"
+    // "A film photo of a beachside street under the sunset"
+    // "A photo of a beautiful ocean with coral reef"
+    // "A photo of a lake under the northern lights"
+
     // Initialize fixed media library with descriptions
     initializeFixedMedia() {
         return {
             "Panorama Generation": [
                 {
-                    title: "Prompt1",
-                    description: "A comprehensive data preprocessing pipeline showing raw data input, cleaning steps, feature extraction, normalization, and final processed output",
+                    title: "A photo of a beautiful ocean with coral reef",
+                    description: "A photo of a beautiful ocean with coral reef",
                     type: "image",
-                    mediaUrl: "./figures/panoramas/coral_reef.png",
+                    mediaUrl: "./materials/figures/panoramas/coral_reef.png",
                     dimensions: "512x4608"
                 },
                 {
-                    title: "Prompt2",
-                    description: "A panoramic image of a bustling cityscape at night, showcasing vibrant lights and dynamic architecture",
+                    title: "A photo of the dolomites with red lava flowing through the valley",
+                    description: "A photo of the dolomites with red lava flowing through the valley",
                     type: "image",
-                    mediaUrl: "./figures/panoramas/dolomiteslava.png",
+                    mediaUrl: "./materials/figures/panoramas/dolomiteslava.png",
                     dimensions: "512x4608"
                 },
                 {
-                    title: "Prompt3",
-                    description: "A panoramic view of a serene mountain range during sunrise, highlighting the natural beauty and tranquility of the scene",
+                    title: "A photo of a forest with a misty fog",
+                    description: "A photo of a forest with a misty fog",
                     type: "image",
-                    mediaUrl: "./figures/panoramas/fogforest.png",
+                    mediaUrl: "./materials/figures/panoramas/fogforest.png",
                     dimensions: "512x4608"
                 },
                 {
-                    title: "Prompt4",
-                    description: "A panoramic image capturing the vibrant colors and intricate details of a coral reef ecosystem",
+                    title: "A photo of a grassland with animals",
+                    description: "A photo of a grassland with animals",
                     type: "image",
-                    mediaUrl: "./figures/panoramas/grassland.png",
+                    mediaUrl: "./materials/figures/panoramas/grassland.png",
                     dimensions: "512x4608"
                 },
                 {
-                    title: "Prompt5",
-                    description: "A panoramic view of a dense forest shrouded in mist, creating a mysterious and enchanting atmosphere",
+                    title: "A photo of a lake under the northern lights",
+                    description: "A photo of a lake under the northern lights",
                     type: "image",
-                    mediaUrl: "./figures/panoramas/lakelights.png",
+                    mediaUrl: "./materials/figures/panoramas/lakelights.png",
                     dimensions: "512x4608"
                 },
                 {
-                    title: "Prompt6",
-                    description: "A panoramic image of a picturesque lakeside scene with mountains in the background, reflecting the natural beauty of the area",
+                    title: "An illustration of a beach in La La Land style",
+                    description: "An illustration of a beach in La La Land style",
                     type: "image",
-                    mediaUrl: "./figures/panoramas/lalaland.png",
+                    mediaUrl: "./materials/figures/panoramas/lalaland.png",
                     dimensions: "512x4608"
                 },
                 {
-                    title: "Prompt7",
-                    description: "A panoramic view of a vibrant city skyline during sunset, showcasing the dynamic architecture and lively atmosphere",
+                    title: "Last supper with cute corgis",
+                    description: "Last supper with cute corgis",
                     type: "image",
-                    mediaUrl: "./figures/panoramas/last_supper.png",
+                    mediaUrl: "./materials/figures/panoramas/last_supper.png",
                     dimensions: "512x4608"
                 },
                 {
-                    title: "Prompt8",
-                    description: "A panoramic image capturing the serene beauty of a beach at sunrise, with soft lighting and gentle waves",
+                    title: "A photo of a beautiful landscape with mountains and a river",
+                    description: "A photo of a beautiful landscape with mountains and a river",
                     type: "image",
-                    mediaUrl: "./figures/panoramas/mountainriver.png",
+                    mediaUrl: "./materials/figures/panoramas/mountainriver.png",
                     dimensions: "512x4608"
                 },
                 {
-                    title: "Prompt9",
-                    description: "A panoramic view of a historic European city with iconic architecture and vibrant street life",
+                    title: "A photo of mountain range at twilight",
+                    description: "A photo of mountain range at twilight",
                     type: "image",
-                    mediaUrl: "./figures/panoramas/mountaintwilight.png",
+                    mediaUrl: "./materials/figures/panoramas/mountaintwilight.png",
                     dimensions: "512x4608"
                 },
                 {
-                    title: "Prompt10",
-                    description: "A panoramic image of a tranquil lakeside scene surrounded by lush greenery and mountains, reflecting the natural beauty of the area",
+                    title: "Cartoon panorama of spring summer beautiful nature",
+                    description: "Cartoon panorama of spring summer beautiful nature",
                     type: "image",
-                    mediaUrl: "./figures/panoramas/nature.png",
+                    mediaUrl: "./materials/figures/panoramas/nature.png",
                     dimensions: "512x4608"
                 },
                 {
-                    title: "Prompt11",
-                    description: "A panoramic view of a vibrant cityscape at night, showcasing the dynamic architecture and lively atmosphere",
+                    title: "Silhouette wallpaper of a dreamy scene with shooting stars",
+                    description: "Silhouette wallpaper of a dreamy scene with shooting stars",
                     type: "image",
-                    mediaUrl: "./figures/panoramas/silhouttestars.png",
+                    mediaUrl: "./materials/figures/panoramas/silhouttestars.png",
                     dimensions: "512x4608"
                 },
                 {
-                    title: "Prompt12",
-                    description: "A panoramic image capturing the serene beauty of a beach at sunset, with warm lighting and gentle waves",
+                    title: "A photo of a snowy mountain peak with skiers",
+                    description: "A photo of a snowy mountain peak with skiers",
                     type: "image",
-                    mediaUrl: "./figures/panoramas/skiers.png",
+                    mediaUrl: "./materials/figures/panoramas/skiers.png",
                     dimensions: "512x4608"
                 }
             ],
             "Video Demonstrations": [
                 {
-                    title: "Prompt1",
-                    description: "A real-time demonstration of algorithm execution showing input processing and results",
+                    title: "Panda playing guitar",
+                    description: "A cute happy panda, dressed in a small, red jacket and a tiny hat, sits on a wooden stool in a serene bamboo forest. The panda's fluffy paws strum a miniature acoustic guitar, producing soft, melodic tunes, move hands, singings. Nearby, a few other pandas gather, watching curiously and some clapping in rhythm. Sunlight filters through the tall bamboo, casting a gentle glow on the scene. The panda's face is expressive, showing concentration and joy as it plays. The background includes a small, flowing stream and vibrant green foliage, enhancing the peaceful and magical atmosphere of this unique musical performance. realism, lifelike.",
                     type: "video",
-                    mediaUrl: "./videos/panda.mp4",
+                    mediaUrl: "./materials/videos/panda.mp4",
                     dimensions: "720x480"
                 },
                 {
-                    title: "Prompt2",
-                    description: "A user interface demonstration showing system interactions and real-time responses",
+                    title: "Cat and a dog baking a cake",
+                    description: "A cat and a dog baking a cake together in a kitchen. The cat is carefully measuring flour, while the dog is stirring the batter with a wooden spoon. The kitchen is cozy, with sunlight streaming through the window.",
                     type: "video", 
-                    mediaUrl: "./videos/baking-cake.mp4",
+                    mediaUrl: "./materials/videos/baking-cake.mp4",
+                    dimensions: "720x480"
+                },
+                {
+                    title: "Balloons flying over Cappadocia",
+                    description: "A group of colorful hot air balloons take off at dawn in Cappadocia, Turkey. Dozens of balloons in various bright colors and patterns slowly rise into the pink and orange sky. Below them, the unique landscape of Cappadocia unfolds, with its distinctive 'fairy chimneys' - tall, cone-shaped rock formations scattered across the valley. The rising sun casts long shadows across the terrain, highlighting the otherworldly topography. realism, lifelike",
+                    type: "video", 
+                    mediaUrl: "./materials/videos/balloons.mp4",
                     dimensions: "720x480"
                 }
             ]

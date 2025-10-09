@@ -128,6 +128,77 @@ a:hover {
     margin-top: 1rem;
 }
 
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.paper-btn {
+    background-color: #1e40af;
+    color: white;
+    border-color: #000000;
+    border-width: 2px;
+}
+
+.paper-btn:hover {
+    background-color: #1d4ed8;
+    border-color: #000000;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(30, 64, 175, 0.4);
+}
+
+.code-btn {
+    background-color: #1e40af;
+    color: white;
+    border-color: #000000;
+    border-width: 2px;
+}
+
+.code-btn:hover {
+    background-color: #1d4ed8;
+    border-color: #000000;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(30, 64, 175, 0.4);
+}
+
+.btn-icon {
+    font-size: 1.1rem;
+}
+
+.btn-text {
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .action-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+    }
+    
+    .action-btn {
+        width: 200px;
+        justify-content: center;
+    }
+}
+
 /* Abstract section */
 .abstract {
     background-color: #f7fafc;
@@ -1243,7 +1314,11 @@ video:focus {
         font-size: 0.8em;
         color: #666;
     }
-}
+    
+    /* Hide URLs for action buttons */
+    .action-btn::after {
+        content: none;
+    }
 
 /* Results Section Styles */
 .evaluation-overview {

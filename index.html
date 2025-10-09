@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Research Paper Title - Your Name</title>
+    <title>Compositional Diffusion with Guided search for Long-Horizon Planning</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script src="script.js"></script>
@@ -26,12 +26,29 @@
                     <a href="mailto:your.email@institution.edu">your.email@institution.edu</a>
                 </p> -->
             </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <a href="./materials/CDGS_anonymous.pdf" class="action-btn paper-btn">
+                    <span class="btn-icon">📄</span>
+                    <span class="btn-text">Paper</span>
+                </a>
+                <a href="https://github.com/cdgsearch/codebase" class="action-btn code-btn">
+                    <span class="btn-icon">💻</span>
+                    <span class="btn-text">Code (Coming soon)</span>
+                </a>
+                <a href="https://github.com/cdgsearch/getting_started_with_CDGS" class="action-btn code-btn">
+                    <span class="btn-icon">💻</span>
+                    <span class="btn-text">Notebook</span>
+                </a>
+            </div>
+            
         </header>
 
         <!-- Teaser Figure -->
         <section class="content-section">
             <figure class="media-figure">
-                <img src="./figures/teaser.png" alt="Teaser Figure" class="teaser-image">
+                <img src="./materials/figures/teaser.png" alt="Teaser Figure" class="teaser-image">
             </figure>
         </section>
 
@@ -39,19 +56,20 @@
         <section class="abstract">
             <h2>Abstract</h2>
             <p>
-                Solving long-horizon goal-directed planning problems requires reasoning about both global structure 
-                <i>(what)</i> and local feasibility <i>(how)</i>. This challenge is amplified when only short-horizon 
-                data is available, yet arises broadly across domains—including panoramic image synthesis, long-video 
-                generation, and multi-stage robot manipulation. A natural solution is to compose local plans into a 
-                coherent global plan, but traditional methods either rely on symbolic/geometric specifications or fail 
-                to generalize when local distributions are highly multimodal. We propose Compositional Diffusion with 
-                Guided Search (CDGS), a unified generative framework that embeds search within the denoising process 
-                of compositional diffusion. This inference-time scaling procedure enforces temporal consistency, prunes 
-                infeasible paths, and harmonizes local segments, producing globally coherent and feasible solutions 
-                without explicit symbolic models. CDGS matches oracle performance on seven robot manipulation tasks 
-                and outperforms baselines lacking compositionality or trained only on long-horizon data. We further 
-                show that CDGS's effective local-to-global message passing enables coherent generation of text-guided 
-                panoramic images and long videos. 
+                Generative models have emerged as powerful tools for planning, with compositional approaches 
+                offering particular promise for modeling long-horizon task distributions by composing together 
+                local, modular generative models. This compositional paradigm spans diverse domains, from multi-step 
+                manipulation planning to panoramic image synthesis to long video generation. However, compositional 
+                generative models face a critical challenge: when local distributions are multimodal, existing 
+                composition methods average incompatible modes, producing plans that are neither locally feasible nor 
+                globally coherent. We propose Compositional Diffusion with Guided Search (CDGS), which addresses 
+                this <i>mode averaging</i> problem by embedding search directly within the diffusion denoising process. 
+                Our method explores diverse combinations of local modes through population-based sampling, enforces 
+                global consistency through iterative resampling between overlapping segments, and prunes infeasible 
+                candidates using likelihood-based filtering. CDGS matches oracle performance on seven robot 
+                manipulation tasks, outperforming baselines that lack compositionality or require long-horizon training 
+                data. The approach generalizes across domains, enabling coherent text-guided panoramic images and 
+                long videos through effective local-to-global message passing.
             </p>
         </section>
 
@@ -59,12 +77,26 @@
         <section class="content-section">
             <h2>Method</h2>
             <p>
-                Our approach consists of three main components that work together to achieve superior performance. 
-                The overall methodology is illustrated in the figure below.
+                CDGS is a structured <i>inference-time</i> algorithm designed to identify coherent sequences of 
+                local modes that form valid global plans. Specifically, CDGS employs a <i>population-based</i> 
+                search to explore and select promising mode sequences beyond naive sampling. To facilitate the search, 
+                it: 
+                <ul>
+                    <li>Incorporates iterative resampling into the compositional score calculation to enhance 
+                        information exchange across distant segments, leading to potentially coherent global plan 
+                        candidates.
+                    </li>
+                    <li>Prunes the incoherent candidates by evaluating the likelihood of their local segments with a 
+                        ranking objective.
+                    </li>
+                </ul>
+                Note that this is all within a standard denoising diffusion process, making CDGS a 
+                plug-and-play sampler applicable across domains, including robotics planning, panorama image generation, 
+                and long video generation.
             </p>
             
             <figure class="media-figure">
-                <img src="./figures/method.png" alt="Method Overview" class="large-image">
+                <img src="./materials/figures/method.png" alt="Method Overview" class="large-image">
             </figure>
         </section>
 
@@ -84,7 +116,7 @@
                 </div>
                 <div class="eval-category">
                     <h3>🌄 Panoramic Image Generation</h3>
-                    <p>High-resolution panoramic image synthesis (512 x 4608) with seamless stitching and detail preservation.</p>
+                    <p>High-resolution panoramic image synthesis upto 512 x 4608 with seamless stitching and detail preservation.</p>
                 </div>
                 <div class="eval-category">
                     <h3>🎬 Long Video Generation</h3>
@@ -105,24 +137,35 @@
                     <div class="video-pair">
                         <figure class="media-figure manipulation-demo">
                             <video class="demo-video" preload="metadata">
-                                <source src="videos/rearrangement_memory.mp4" type="video/mp4">
+                                <source src="./materials/videos/rearrangement_memory.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
-                            <!-- <figcaption>
-                                <strong>Video 1:</strong> Multi-step object assembly task demonstrating long-horizon planning 
-                                with precise manipulation and error recovery capabilities.
-                            </figcaption> -->
+                            <figcaption>
+                                <strong>Video 1:</strong> On the table, there's a hook, a blue cube, and a 
+                                green cube. The hook and green cube are within reach, but the blue cube is 
+                                out of reach. The goal is to move the blue cube into the spot where the green 
+                                cube currently sits. One way to do this is to first pick up the hook and use 
+                                it to pull the blue cube closer, then move the green cube out of the way, 
+                                and finally place the blue cube in the green cube's original spot. 
+                                Alternatively, you could first move the green cube, then pull the blue cube 
+                                closer, and finally place it. We leave it to the algorithm to determine the 
+                                exact sequence of actions.
+                            </figcaption>
                         </figure>
 
                         <figure class="media-figure manipulation-demo">
                             <video class="demo-video" preload="metadata">
-                                <source src="videos/rearrangement_push.mp4" type="video/mp4">
+                                <source src="./materials/videos/rearrangement_push.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
-                            <!-- <figcaption>
-                                <strong>Video 2:</strong> Complex kitchen task involving multiple tools and sequential operations 
-                                showcasing adaptive behavior and robust execution.
-                            </figcaption> -->
+                            <figcaption>
+                                <strong>Video 2:</strong> On the table, there's a hook, a cube, and a rack. 
+                                The hook is within reach, but the cube and rack are out of reach. The goal 
+                                is to get the cube placed underneath the rack. To do this, you first pick up 
+                                the hook and pull the cube closer. Then you put down the hook, pick up the 
+                                cube, and place it in front of the rack. Finally, you grab the hook again and 
+                                push the cube under the rack.
+                            </figcaption>
                         </figure>
                     </div>
                 </div>
@@ -157,12 +200,12 @@
 
         <!-- Footer -->
         <footer class="paper-footer">
-            <p>
+            <!-- <p>
                 <strong>Code and Data:</strong> 
                 <a href="https://github.com/your-username/your-repo">GitHub Repository</a> | 
                 <a href="#dataset-link">Dataset</a>
-            </p>
-            <p class="updated">Last updated: September 2024</p>
+            </p> -->
+            <p class="updated">Last updated: September 2025</p>
         </footer>
     </main>
 </body>
