@@ -1,4 +1,4 @@
-## Compositional Diffusion with Guided search for Long-Horizon Planning
+## Compositional Diffusion with Guided Search for Long-Horizon Planning
 
 **Authors:** Utkarsh A Mishra, David He, Yongxin Chen, Danfei Xu
 
