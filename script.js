@@ -138,13 +138,6 @@ class MediaController {
                     type: "video", 
                     mediaUrl: "./materials/videos/baking-cake.mp4",
                     dimensions: "720x480"
-                },
-                {
-                    title: "Balloons flying over Cappadocia",
-                    description: "A group of colorful hot air balloons take off at dawn in Cappadocia, Turkey. Dozens of balloons in various bright colors and patterns slowly rise into the pink and orange sky. Below them, the unique landscape of Cappadocia unfolds, with its distinctive 'fairy chimneys' - tall, cone-shaped rock formations scattered across the valley. The rising sun casts long shadows across the terrain, highlighting the otherworldly topography. realism, lifelike",
-                    type: "video", 
-                    mediaUrl: "./materials/videos/balloons.mp4",
-                    dimensions: "720x480"
                 }
             ]
         };

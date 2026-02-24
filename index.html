@@ -1,212 +1,312 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Compositional Diffusion with Guided search for Long-Horizon Planning</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <script src="script.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Compositional Diffusion with Guided Search for Long-Horizon Planning">
+  <meta name="keywords" content="diffusion models, compositional planning, long-horizon, robotics, panorama, video generation">
+
+  <title>CDGS: Compositional Diffusion with Guided Search</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" type="text/css"
+    href="https://cdn.rawgit.com/dreampulse/computer-modern-web-font/master/fonts.css">
 </head>
+
 <body>
-    <main class="container">
-        <!-- Header Section -->
-        <header class="paper-header">
-            <h1 class="paper-title">Compositional Diffusion with Guided search for Long-Horizon Planning</h1>
-            <div class="author-info">
-                <!-- <p class="authors">
-                    <span class="author">Your Name<sup>1</sup></span>,
-                    <span class="author">Co-Author Name<sup>2</sup></span>
-                </p>
-                <p class="affiliations">
-                    <span class="affiliation"><sup>1</sup>Your Institution</span>
-                    <span class="affiliation"><sup>2</sup>Co-Author Institution</span>
-                </p> -->
-                <!-- <p class="contact">
-                    <a href="mailto:your.email@institution.edu">your.email@institution.edu</a>
-                </p> -->
+
+  <div class="outercontainer">
+    <div class="container">
+
+      <!-- Title -->
+      <div class="content project-title">
+        <br>
+        <h2>Compositional Diffusion with Guided Search<br>for Long-Horizon Planning</h2>
+        <div class="authors">
+          <a href="https://umishra.me/">Utkarsh A Mishra</a>,
+          <a href="https://davidhe137.github.io/">David He</a>,
+          <a href="https://yongxin.ae.gatech.edu/">Yongxin Chen</a>, and
+          <a href="https://faculty.cc.gatech.edu/~danfei/">Danfei Xu</a>
+        </div>
+        <div class="affiliation">
+          <a href="https://www.gatech.edu/">Georgia Institute of Technology</a>
+        </div>
+        <div class="links">
+          <span class="link"><a href="https://openreview.net/forum?id=b8avf4F2hn">ICLR 2026</a></span>&nbsp;&nbsp;
+          <span class="tag">
+            <a href="https://arxiv.org/abs/2601.00126" class="link2">Paper</a>&nbsp;
+            <a href="https://github.com/cdgsearch/getting_started_with_CDGS" class="link2">Getting Started</a>&nbsp;
+            <a href="https://github.com/UtkarshMishra04/CDGS_imgvideo" class="link2">Code (Img/Video)</a>&nbsp;
+            <a href="https://github.com/UtkarshMishra04/CDGS_ogbench" class="link2">Code (OGBench)</a>&nbsp;
+          </span>
+        </div>
+      </div>
+
+      <br>
+
+      <!-- Teaser -->
+      <div class="content" style="width: 100%;">
+        <center>
+          <img src="./materials/figures/teaser.png" width="95%" style="max-width: 900px;">
+        </center>
+      </div>
+
+      <br>
+
+      <!-- Abstract -->
+      <div class="content" style="width: 100%;">
+        <div class="title"><b>Abstract</b></div>
+        <p>
+          Generative models have emerged as powerful tools for planning, with compositional approaches
+          offering particular promise for modeling long-horizon task distributions by composing together
+          local, modular generative models. This compositional paradigm spans diverse domains, from multi-step
+          manipulation planning to panoramic image synthesis to long video generation. However, compositional
+          generative models face a critical challenge: when local distributions are multimodal, existing
+          composition methods average incompatible modes, producing plans that are neither locally feasible nor
+          globally coherent. We propose Compositional Diffusion with Guided Search (CDGS), which addresses
+          this <i>mode averaging</i> problem by embedding search directly within the diffusion denoising process.
+          Our method explores diverse combinations of local modes through population-based sampling, enforces
+          global consistency through iterative resampling between overlapping segments, and prunes infeasible
+          candidates using likelihood-based filtering. CDGS matches oracle performance on seven robot
+          manipulation tasks, outperforming baselines that lack compositionality or require long-horizon training
+          data. The approach generalizes across domains, enabling coherent text-guided panoramic images and
+          long videos through effective local-to-global message passing.
+        </p>
+      </div>
+
+      <br>
+
+      <!-- Method -->
+      <div class="content" style="width: 100%;">
+        <div class="title"><b>Method</b></div>
+        <p>
+          CDGS is a structured <i>inference-time</i> algorithm designed to identify coherent sequences of
+          local modes that form valid global plans. Specifically, CDGS employs a <i>population-based</i>
+          search to explore and select promising mode sequences beyond naive sampling. To facilitate the search,
+          it:
+        </p>
+        <ul>
+          <li>Incorporates iterative resampling into the compositional score calculation to enhance
+            information exchange across distant segments, leading to potentially coherent global plan
+            candidates.</li>
+          <li>Prunes the incoherent candidates by evaluating the likelihood of their local segments with a
+            ranking objective.</li>
+        </ul>
+        <p>
+          Note that this is all within a standard denoising diffusion process, making CDGS a
+          plug-and-play sampler applicable across domains, including robotics planning, panorama image generation,
+          and long video generation.
+        </p>
+        <center>
+          <img src="./materials/figures/method.png" width="100%" style="max-width: 900px;">
+        </center>
+      </div>
+
+      <br><br>
+
+      <!-- Results -->
+      <div class="content" style="width: 100%;">
+        <div class="title"><b>Results</b></div>
+        <p>
+          We evaluate our approach across three key domains that demonstrate the versatility and effectiveness of our method.
+        </p>
+      </div>
+
+      <br>
+
+      <!-- 1. Manipulation Tasks -->
+      <div class="content" style="width: 100%;">
+        <div class="title"><b>Long-horizon manipulation tasks</b></div>
+        <p>
+          Complex robotic manipulation sequences requiring long-horizon planning and reasoning about inter-step dependencies.
+        </p>
+
+        <center>
+          <video width="49%" autoplay playsinline muted loop class="demo-video">
+            <source src="./materials/videos/rearrangement_memory.mp4" type="video/mp4">
+          </video>
+          <video width="49%" autoplay playsinline muted loop class="demo-video">
+            <source src="./materials/videos/rearrangement_push.mp4" type="video/mp4">
+          </video>
+        </center>
+
+        <table class="caption-table">
+          <tr valign="top">
+            <td style="width: 50%; padding-right: 10px;">
+              <p class="caption">
+                <b>Video 1:</b> On the table, there's a hook, a blue cube, and a
+                green cube. The hook and green cube are within reach, but the blue cube is
+                out of reach. The goal is to move the blue cube into the spot where the green
+                cube currently sits. One way to do this is to first pick up the hook and use
+                it to pull the blue cube closer, then move the green cube out of the way,
+                and finally place the blue cube in the green cube's original spot.
+                Alternatively, you could first move the green cube, then pull the blue cube
+                closer, and finally place it. We leave it to the algorithm to determine the
+                exact sequence of actions.
+              </p>
+            </td>
+            <td style="width: 50%; padding-left: 10px;">
+              <p class="caption">
+                <b>Video 2:</b> On the table, there's a hook, a cube, and a rack.
+                The hook is within reach, but the cube and rack are out of reach. The goal
+                is to get the cube placed underneath the rack. To do this, you first pick up
+                the hook and pull the cube closer. Then you put down the hook, pick up the
+                cube, and place it in front of the rack. Finally, you grab the hook again and
+                push the cube under the rack.
+              </p>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <br><br>
+
+      <!-- 2. Panoramic Image Generation -->
+      <div class="content" style="width: 100%;">
+        <div class="title"><b>Panoramic image generation</b></div>
+        <p>
+          High-resolution panoramic image synthesis up to 512 &times; 4608 with seamless stitching and detail preservation.
+          Select a prompt below to view the generated panorama.
+        </p>
+
+        <center>
+          <select id="panorama-select" class="prompt-select" onchange="showPanorama(this.value)">
+            <option value="coral_reef" selected>A photo of a beautiful ocean with coral reef</option>
+            <option value="dolomiteslava">A photo of the dolomites with red lava flowing through the valley</option>
+            <option value="fogforest">A photo of a forest with a misty fog</option>
+            <option value="grassland">A photo of a grassland with animals</option>
+            <option value="lakelights">A photo of a lake under the northern lights</option>
+            <option value="lalaland">An illustration of a beach in La La Land style</option>
+            <option value="last_supper">Last supper with cute corgis</option>
+            <option value="mountainriver">A photo of a beautiful landscape with mountains and a river</option>
+            <option value="mountaintwilight">A photo of mountain range at twilight</option>
+            <option value="nature">Cartoon panorama of spring summer beautiful nature</option>
+            <option value="silhouttestars">Silhouette wallpaper of a dreamy scene with shooting stars</option>
+            <option value="skiers">A photo of a snowy mountain peak with skiers</option>
+          </select>
+          <div id="panorama-display" class="media-display">
+            <div class="zoom-wrap" style="margin-top: 0.75em;">
+              <img src="./materials/figures/panoramas/coral_reef.png" width="100%">
+              <div class="zoom-lens"></div>
             </div>
+            <p class="caption">"A photo of a beautiful ocean with coral reef"</p>
+          </div>
+        </center>
+      </div>
 
-            <!-- Action Buttons -->
-            <div class="action-buttons">
-                <a href="./materials/CDGS_anonymous.pdf" class="action-btn paper-btn">
-                    <span class="btn-icon">📄</span>
-                    <span class="btn-text">Paper</span>
-                </a>
-                <a href="https://github.com/cdgsearch/codebase" class="action-btn code-btn">
-                    <span class="btn-icon">💻</span>
-                    <span class="btn-text">Code (Coming soon)</span>
-                </a>
-                <a href="https://github.com/cdgsearch/getting_started_with_CDGS" class="action-btn code-btn">
-                    <span class="btn-icon">💻</span>
-                    <span class="btn-text">Notebook</span>
-                </a>
-            </div>
-            
-        </header>
+      <br><br>
 
-        <!-- Teaser Figure -->
-        <section class="content-section">
-            <figure class="media-figure">
-                <img src="./materials/figures/teaser.png" alt="Teaser Figure" class="teaser-image">
-            </figure>
-        </section>
+      <!-- 3. Long Video Generation -->
+      <div class="content" style="width: 100%;">
+        <div class="title"><b>Long video generation</b></div>
+        <p>
+          Extended video sequence generation up to 350 frames while maintaining temporal and subject consistencies.
+          Select a prompt below to view the generated video.
+        </p>
 
-        <!-- Abstract Section -->
-        <section class="abstract">
-            <h2>Abstract</h2>
-            <p>
-                Generative models have emerged as powerful tools for planning, with compositional approaches 
-                offering particular promise for modeling long-horizon task distributions by composing together 
-                local, modular generative models. This compositional paradigm spans diverse domains, from multi-step 
-                manipulation planning to panoramic image synthesis to long video generation. However, compositional 
-                generative models face a critical challenge: when local distributions are multimodal, existing 
-                composition methods average incompatible modes, producing plans that are neither locally feasible nor 
-                globally coherent. We propose Compositional Diffusion with Guided Search (CDGS), which addresses 
-                this <i>mode averaging</i> problem by embedding search directly within the diffusion denoising process. 
-                Our method explores diverse combinations of local modes through population-based sampling, enforces 
-                global consistency through iterative resampling between overlapping segments, and prunes infeasible 
-                candidates using likelihood-based filtering. CDGS matches oracle performance on seven robot 
-                manipulation tasks, outperforming baselines that lack compositionality or require long-horizon training 
-                data. The approach generalizes across domains, enabling coherent text-guided panoramic images and 
-                long videos through effective local-to-global message passing.
-            </p>
-        </section>
+        <center>
+          <select id="video-select" class="prompt-select" onchange="showVideo(this.value)">
+            <option value="panda" selected>Panda playing guitar</option>
+            <option value="baking-cake">Cat and a dog baking a cake</option>
+          </select>
+          <div id="video-display" class="media-display">
+            <video width="80%" controls playsinline muted loop class="demo-video" style="margin-top: 0.75em;">
+              <source src="./materials/videos/panda.mp4" type="video/mp4">
+            </video>
+            <p class="caption">"A cute happy panda, dressed in a small, red jacket and a tiny hat, sits on a wooden stool in a serene bamboo forest. The panda's fluffy paws strum a miniature acoustic guitar, producing soft, melodic tunes, move hands, singings. Nearby, a few other pandas gather, watching curiously and some clapping in rhythm. Sunlight filters through the tall bamboo, casting a gentle glow on the scene. The panda's face is expressive, showing concentration and joy as it plays. The background includes a small, flowing stream and vibrant green foliage, enhancing the peaceful and magical atmosphere of this unique musical performance. realism, lifelike."</p>
+          </div>
+        </center>
+      </div>
 
-        <!-- Method Figure -->
-        <section class="content-section">
-            <h2>Method</h2>
-            <p>
-                CDGS is a structured <i>inference-time</i> algorithm designed to identify coherent sequences of 
-                local modes that form valid global plans. Specifically, CDGS employs a <i>population-based</i> 
-                search to explore and select promising mode sequences beyond naive sampling. To facilitate the search, 
-                it: 
-                <ul>
-                    <li>Incorporates iterative resampling into the compositional score calculation to enhance 
-                        information exchange across distant segments, leading to potentially coherent global plan 
-                        candidates.
-                    </li>
-                    <li>Prunes the incoherent candidates by evaluating the likelihood of their local segments with a 
-                        ranking objective.
-                    </li>
-                </ul>
-                Note that this is all within a standard denoising diffusion process, making CDGS a 
-                plug-and-play sampler applicable across domains, including robotics planning, panorama image generation, 
-                and long video generation.
-            </p>
-            
-            <figure class="media-figure">
-                <img src="./materials/figures/method.png" alt="Method Overview" class="large-image">
-            </figure>
-        </section>
+      <br><br>
 
-        <!-- Results Section -->
-        <section class="content-section">
-            <h2>Results</h2>
-            <p>
-                We evaluate our approach across three key domains that demonstrate the versatility and effectiveness of our method. 
-                Each evaluation category showcases different aspects of our algorithm's capabilities.
-            </p>
+      <!-- Citation -->
+      <div class="content" style="width: 100%;">
+        <div class="title"><b>Citation</b></div>
+        <p>If you find this work useful, please cite:</p>
+        <pre class="bibtex">@inproceedings{
+mishra2026compositional,
+title={Compositional Diffusion with Guided search for Long-Horizon Planning},
+author={Utkarsh Aashu Mishra and David He and Yongxin Chen and Danfei Xu},
+booktitle={The Fourteenth International Conference on Learning Representations},
+year={2026},
+url={https://openreview.net/forum?id=b8avf4F2hn}
+}</pre>
+      </div>
 
-            <!-- Evaluation Overview -->
-            <div class="evaluation-overview">
-                <div class="eval-category">
-                    <h3>🤖 Long Horizon Manipulation Tasks</h3>
-                    <p>Complex robotic manipulation sequences requiring long-horizon planning and reasoning about inter-step dependencies.</p>
-                </div>
-                <div class="eval-category">
-                    <h3>🌄 Panoramic Image Generation</h3>
-                    <p>High-resolution panoramic image synthesis upto 512 x 4608 with seamless stitching and detail preservation.</p>
-                </div>
-                <div class="eval-category">
-                    <h3>🎬 Long Video Generation</h3>
-                    <p>Extended video sequence generation upto 350 frames while maintaining temporal and subject consistencies.</p>
-                </div>
-            </div>
+      <br>
 
-            <!-- 1. Long Horizon Manipulation Tasks -->
-            <div class="results-category">
-                <h3>1. Long Horizon Manipulation Tasks</h3>
-                <!-- <p>
-                    Our method demonstrates superior performance in complex manipulation tasks that require extended 
-                    planning horizons and precise execution. We present two representative examples showcasing 
-                    different aspects of manipulation capabilities.
-                </p> -->
-                
-                <div class="manipulation-videos">
-                    <div class="video-pair">
-                        <figure class="media-figure manipulation-demo">
-                            <video class="demo-video" preload="metadata">
-                                <source src="./materials/videos/rearrangement_memory.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                            <figcaption>
-                                <strong>Video 1:</strong> On the table, there's a hook, a blue cube, and a 
-                                green cube. The hook and green cube are within reach, but the blue cube is 
-                                out of reach. The goal is to move the blue cube into the spot where the green 
-                                cube currently sits. One way to do this is to first pick up the hook and use 
-                                it to pull the blue cube closer, then move the green cube out of the way, 
-                                and finally place the blue cube in the green cube's original spot. 
-                                Alternatively, you could first move the green cube, then pull the blue cube 
-                                closer, and finally place it. We leave it to the algorithm to determine the 
-                                exact sequence of actions.
-                            </figcaption>
-                        </figure>
+      <!-- Footer -->
+      <div class="content" style="width: 100%; text-align: center;">
+        <p class="footer-text">Last updated: February 2026</p>
+      </div>
 
-                        <figure class="media-figure manipulation-demo">
-                            <video class="demo-video" preload="metadata">
-                                <source src="./materials/videos/rearrangement_push.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                            <figcaption>
-                                <strong>Video 2:</strong> On the table, there's a hook, a cube, and a rack. 
-                                The hook is within reach, but the cube and rack are out of reach. The goal 
-                                is to get the cube placed underneath the rack. To do this, you first pick up 
-                                the hook and pull the cube closer. Then you put down the hook, pick up the 
-                                cube, and place it in front of the rack. Finally, you grab the hook again and 
-                                push the cube under the rack.
-                            </figcaption>
-                        </figure>
-                    </div>
-                </div>
+      <br><br>
 
-                <!-- <div class="performance-metrics">
-                    <div class="metric-item">
-                        <span class="metric-value">94.2%</span>
-                        <span class="metric-label">Success Rate</span>
-                    </div>
-                    <div class="metric-item">
-                        <span class="metric-value">3.7x</span>
-                        <span class="metric-label">Speed Improvement</span>
-                    </div>
-                    <div class="metric-item">
-                        <span class="metric-value">15.8s</span>
-                        <span class="metric-label">Avg. Planning Time</span>
-                    </div>
-                </div> -->
-            </div>
+    </div>
+  </div>
 
-            <!-- 2. Panoramic Image Generation -->
-            <div class="results-category">
-                <h3>2. Panoramic Image and Long Video Generation</h3>
-                <!-- <p>
-                    Our approach excels at generating high-quality panoramic images with seamless stitching and 
-                    exceptional detail preservation. The gallery below showcases diverse panoramic generations 
-                    across different environments and conditions. Our method generates temporally consistent long-form videos while maintaining narrative coherence 
-                    and visual quality. The collection below demonstrates various scenarios and content types.
-                </p> -->
-            </div>
-        </section>
+<script>
+function showPanorama(key) {
+  var src = './materials/figures/panoramas/' + key + '.png';
+  var label = document.getElementById('panorama-select');
+  var prompt = label.options[label.selectedIndex].text;
+  document.getElementById('panorama-display').innerHTML =
+    '<div class="zoom-wrap" style="margin-top: 0.75em;">' +
+    '<img src="' + src + '" width="100%">' +
+    '<div class="zoom-lens"></div>' +
+    '</div>' +
+    '<p class="caption">"' + prompt + '"</p>';
+  initZoom();
+}
 
-        <!-- Footer -->
-        <footer class="paper-footer">
-            <!-- <p>
-                <strong>Code and Data:</strong> 
-                <a href="https://github.com/your-username/your-repo">GitHub Repository</a> | 
-                <a href="#dataset-link">Dataset</a>
-            </p> -->
-            <p class="updated">Last updated: September 2025</p>
-        </footer>
-    </main>
+var ZOOM = 3;
+
+function initZoom() {
+  document.querySelectorAll('.zoom-wrap').forEach(function(wrap) {
+    if (wrap.dataset.zoomReady) return;
+    wrap.dataset.zoomReady = '1';
+    var img = wrap.querySelector('img');
+    var lens = wrap.querySelector('.zoom-lens');
+
+    wrap.addEventListener('mouseenter', function() { lens.style.display = 'block'; });
+    wrap.addEventListener('mouseleave', function() { lens.style.display = 'none'; });
+    wrap.addEventListener('mousemove', function(e) {
+      var rect = img.getBoundingClientRect();
+      var x = e.clientX - rect.left;
+      var y = e.clientY - rect.top;
+      var size = rect.height;
+      lens.style.width = size + 'px';
+      lens.style.height = size + 'px';
+      // position lens centered on cursor
+      lens.style.left = (x - size / 2) + 'px';
+      lens.style.top = (y - size / 2) + 'px';
+      // set background
+      lens.style.backgroundImage = 'url(' + img.src + ')';
+      lens.style.backgroundSize = (img.width * ZOOM) + 'px ' + (img.height * ZOOM) + 'px';
+      lens.style.backgroundPosition = -(x * ZOOM - size / 2) + 'px ' + -(y * ZOOM - size / 2) + 'px';
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', initZoom);
+
+var videoDescriptions = {
+  'panda': 'A cute happy panda, dressed in a small, red jacket and a tiny hat, sits on a wooden stool in a serene bamboo forest. The panda\u2019s fluffy paws strum a miniature acoustic guitar, producing soft, melodic tunes, move hands, singings. Nearby, a few other pandas gather, watching curiously and some clapping in rhythm. Sunlight filters through the tall bamboo, casting a gentle glow on the scene. The panda\u2019s face is expressive, showing concentration and joy as it plays. The background includes a small, flowing stream and vibrant green foliage, enhancing the peaceful and magical atmosphere of this unique musical performance. realism, lifelike.',
+  'baking-cake': 'A cat and a dog baking a cake together in a kitchen. The cat is carefully measuring flour, while the dog is stirring the batter with a wooden spoon. The kitchen is cozy, with sunlight streaming through the window.'
+};
+
+function showVideo(key) {
+  var src = './materials/videos/' + key + '.mp4';
+  var desc = videoDescriptions[key];
+  document.getElementById('video-display').innerHTML =
+    '<video width="80%" controls playsinline muted loop class="demo-video" autoplay style="margin-top: 0.75em;">' +
+    '<source src="' + src + '" type="video/mp4">' +
+    '</video>' +
+    '<p class="caption">"' + desc + '"</p>';
+}
+</script>
+
 </body>
 </html>

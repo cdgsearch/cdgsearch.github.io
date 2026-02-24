@@ -1,5 +1,10 @@
 ## Compositional Diffusion with Guided search for Long-Horizon Planning
 
+**Authors:** Utkarsh A Mishra, David He, Yongxin Chen, Danfei Xu
+
+**Affiliation:** Georgia Institute of Technology
+
+**arXiv:** https://arxiv.org/abs/2601.00126
 
 ### Abstract
 Generative models have emerged as powerful tools for planning, with compositional approaches 
@@ -16,3 +21,5 @@ candidates using likelihood-based filtering. CDGS matches oracle performance on 
 manipulation tasks, outperforming baselines that lack compositionality or require long-horizon training 
 data. The approach generalizes across domains, enabling coherent text-guided panoramic images and 
 long videos through effective local-to-global message passing.
+
+
