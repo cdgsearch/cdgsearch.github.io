@@ -23,3 +23,17 @@ data. The approach generalizes across domains, enabling coherent text-guided pan
 long videos through effective local-to-global message passing.
 
 
+## Citations
+
+If you use this code, please cite the following:
+
+```bibtex
+@inproceedings{
+mishra2026compositional,
+title={Compositional Diffusion with Guided search for Long-Horizon Planning},
+author={Utkarsh Aashu Mishra and David He and Yongxin Chen and Danfei Xu},
+booktitle={The Fourteenth International Conference on Learning Representations},
+year={2026},
+url={https://openreview.net/forum?id=b8avf4F2hn}
+}
+```
